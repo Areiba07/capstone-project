@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*
+Require the JavaScript code that powers the interactive elements before the end of your <body> tag:
+<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+*/
