@@ -1,8 +1,8 @@
-import React from 'react'
-
+import Root from "./pages/root"
 function App() {
   return (
     <>
+      <Root/>
     </>
   )
 }
