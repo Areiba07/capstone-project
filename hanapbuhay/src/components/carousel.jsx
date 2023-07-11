@@ -12,7 +12,7 @@ export default function CarouselHome() {
         showStatus={false}
         autoPlay={true}
         infiniteLoop={true}
-        interval={3000}
+        interval={5000}
       >
         <div className="carousel-item">
           <img src="https://www.dynamique-mag.com/wp-content/uploads/c9712ea5c75c8483593ec967a0826907.jpg" alt="Slide 1" />
