@@ -16,6 +16,7 @@ import Service5 from "./pages/service5";
 import Service6 from "./pages/service6";
 import Service7 from "./pages/service7";
 import Service8 from "./pages/service8";
+import GeneralServices from "./pages/generalService";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,44 @@ const router = createBrowserRouter([
       {
         path: "/service",
         element: <Services />,
+        children: [
+          {
+            index: true,
+            element: <GeneralServices />,
+          },
+          {
+            path: "/service/service1",
+            element: <Service1 />,
+          },
+          {
+            path: "/service/service2",
+            element: <Service2 />,
+          },
+          {
+            path: "/service/service3",
+            element: <Service3 />,
+          },
+          {
+            path: "/service/service4",
+            element: <Service4 />,
+          },
+          {
+            path: "/service/service5",
+            element: <Service5 />,
+          },
+          {
+            path: "/service/service6",
+            element: <Service6 />,
+          },
+          {
+            path: "/service/service7",
+            element: <Service7 />,
+          },
+          {
+            path: "/service/service8",
+            element: <Service8 />,
+          },
+        ],
       },
     ],
   },
@@ -47,38 +86,6 @@ const router = createBrowserRouter([
   },
   {
     //sign up
-  },
-  {
-    path: "/service1",
-    element: <Service1 />,
-  },
-  {
-    path: "/service2",
-    element: <Service2 />,
-  },
-  {
-    path: "/service3",
-    element: <Service3 />,
-  },
-  {
-    path: "/service4",
-    element: <Service4 />,
-  },
-  {
-    path: "/service5",
-    element: <Service5 />,
-  },
-  {
-    path: "/service6",
-    element: <Service6 />,
-  },
-  {
-    path: "/service7",
-    element: <Service7 />,
-  },
-  {
-    path: "/service8",
-    element: <Service8 />,
   },
 ]);
 

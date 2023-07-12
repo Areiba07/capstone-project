@@ -35,3 +35,44 @@ Require the JavaScript code that powers the interactive elements before the end 
     padding: 8px 16px;
     border-radius: 4px;
   }
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .Card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .CardContent {
+    padding: 16px;
+  }
+  
+  .CardContent h2 {
+    margin-top: 0;
+  }
+  
+  .CardContent p {
+    margin-bottom: 16px;
+  }
+  
+  .CardContent button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
