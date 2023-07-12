@@ -17,7 +17,7 @@ import Service6 from "./pages/service6";
 import Service7 from "./pages/service7";
 import Service8 from "./pages/service8";
 import GeneralServices from "./pages/generalService";
-
+import 'flowbite/dist/flowbite.css';
 const router = createBrowserRouter([
   {
     path: "/",

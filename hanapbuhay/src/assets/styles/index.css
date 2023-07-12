@@ -7,9 +7,10 @@ Require the JavaScript code that powers the interactive elements before the end 
 */
 .carousel-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
+    justify-self: auto;
     height: 40%;
+    max-width: 80%;
   }
   
   .carousel-item {
