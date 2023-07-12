@@ -12,7 +12,7 @@ export default function About() {
         />
       <div className="container mx-auto px-4">
         <h1 className="text-center text-4xl font-bold text-gray-800 mb-6">Welcome to HanapBuhay!</h1>
-        <p className=" mx-30 text-center text-justify text-lg text-gray-700 mb-8">
+        <p className=" mx-30  text-justify text-lg text-gray-700 mb-8">
           At HanapBuhay, we believe that finding the perfect service provider or service seeker shouldn't be a tedious and time-consuming process. That's why we've created a revolutionary online hiring platform that connects individuals with their ideal service providers or service seekers effortlessly. Our mission is to simplify and streamline the service search experience, making it faster, easier, and more efficient for both parties.
         </p>
         <div className="text-justify justify-around flex flex-col md:flex-row  mb-8">
