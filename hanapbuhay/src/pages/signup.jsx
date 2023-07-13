@@ -1,11 +1,22 @@
 import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
+import HanapBuhayLogo from "../assets/images/logo.png"
 
-export default function Root() {
+export default function SignUp() {
   return (
     <>
-      <div className="text-justify justify-around flex flex-col md:flex-row  mb-8">
-        <div className="justify-between md:w-2/5 bg-violet-500 bg-opacity-70 p-6 rounded-lg mb-4">
+      <div>
+        <div>
+        <img
+            alt = "Hanap Buhay Logo"
+            className="  mx-auto justify-normal w-60 h-60"
+            src = {HanapBuhayLogo}
+        />
+        <h1 className="text-center text-4xl font-bold text-gray-800 mb-6">Welcome to HanapBuhay!</h1>
+        </div>
+        <br/>
+        <div className="container justify-center text-center flex  mx-auto ">
+        <div className="justify-between  md:w-2/5 bg-violet-500 bg-opacity-70 p-6 rounded-lg mb-4">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
             For Service Providers
           </h2>
@@ -17,8 +28,10 @@ export default function Root() {
             freelancer, contractor, or business owner, HanapBuhay has got you
             covered. Take advantage of our advanced search filters, showcase
             your portfolio, and connect with service seekers looking for your
-            expertise.
+            expertise.                                                       
+
           </p>
+          <br />
           <br />
           <div>
             <Button gradientDuoTone="purpleToPink" pill>
@@ -46,6 +59,7 @@ export default function Root() {
               BE A SERVICE SEEKER
             </Button>
           </div>
+        </div>
         </div>
       </div>
     </>
