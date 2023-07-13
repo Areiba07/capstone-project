@@ -17,6 +17,10 @@ function NavbarItems() {
     {
         nav: "Login",
         link: "login",
+    },
+    {
+        nav: "Sign Up",
+        link: "login/signup",
       },
   ];
   const itemList = navItems.map((e, index) => {
