@@ -17,12 +17,9 @@ import Service6 from "./pages/service6";
 import Service7 from "./pages/service7";
 import Service8 from "./pages/service8";
 import GeneralServices from "./pages/generalService";
-<<<<<<< Updated upstream
-
-=======
 import 'flowbite/dist/flowbite.css';
 import Signup from "./pages/signup";
->>>>>>> Stashed changes
+
 const router = createBrowserRouter([
   {
     path: "/",
