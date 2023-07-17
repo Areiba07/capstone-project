@@ -1,7 +1,5 @@
-export default function Service3() {
-    return (
-      <>
-        <h1>Service 3 Category</h1>
-      </>
-    );
-  }
+import ServicesCards from "../components/servicesCards";
+import "../assets/styles/index.css";
+export default function Services3() {
+  return <><h1>Category 3 Services</h1>{<ServicesCards />}</>;
+}

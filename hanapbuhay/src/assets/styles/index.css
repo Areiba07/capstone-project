@@ -38,7 +38,7 @@ Require the JavaScript code that powers the interactive elements before the end 
   }
   .App {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
   }
   
   .Card {
@@ -77,3 +77,7 @@ Require the JavaScript code that powers the interactive elements before the end 
     border-radius: 4px;
     cursor: pointer;
   }
+  /*
+  break for service directory
+  */
+

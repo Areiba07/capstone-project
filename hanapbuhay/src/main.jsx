@@ -19,6 +19,10 @@ import Service8 from "./pages/service8";
 import GeneralServices from "./pages/generalService";
 import 'flowbite/dist/flowbite.css';
 import Signup from "./pages/signup";
+import SeekerSignup from "./pages/seeker";
+import ProviderSignup from "./pages/provider";
+import ServiceDirectory from "./pages/serviceDirectory";
+import ServiceBoard from "./pages/serviceBoard";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +49,10 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <GeneralServices />,
+          },
+          {
+            path: "/service/serviceDirectory",
+            element: <ServiceDirectory />,
           },
           {
             path: "/service/service1",
@@ -80,6 +88,10 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "/serviceBoard",
+        element: <ServiceBoard />,
+      },
     ],
   },
   {
@@ -87,18 +99,20 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/login/signup",
+    path: "/login/signup",  //signup on login page
     element: <Signup />,
-    children: [
-      {
-        path: "/login/signup/seeker",
-        element: <GeneralServices />,
-      },
-      {
-        path: "/login/signup/provider",
-        element: <GeneralServices />,
-      }
-    ],
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/seeker",
+    element: <SeekerSignup />,
+  },
+  {
+    path: "/provider",
+    element: <ProviderSignup />,
   },
 ]);
 
