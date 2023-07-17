@@ -1,7 +1,5 @@
-export default function Service8() {
-    return (
-      <>
-        <h1>Service 8 Category</h1>
-      </>
-    );
-  }
+import ServicesCards from "../components/servicesCards";
+import "../assets/styles/index.css";
+export default function Services8() {
+  return <><h1>Category 8 Services</h1>{<ServicesCards />}</>;
+}
