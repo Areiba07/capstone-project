@@ -23,6 +23,7 @@ import SeekerSignup from "./pages/seeker";
 import ProviderSignup from "./pages/provider";
 import ServiceDirectory from "./pages/serviceDirectory";
 import ServiceBoard from "./pages/serviceBoard";
+import ProviderHome from "./pages/provider-home";
 
 const router = createBrowserRouter([
   {
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
   {
     path: "/provider",
     element: <ProviderSignup />,
+  },
+  {
+    path: "/provider-home",
+    element: <ProviderHome />
   },
 ]);
 
