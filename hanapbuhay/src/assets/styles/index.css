@@ -80,4 +80,42 @@ Require the JavaScript code that powers the interactive elements before the end 
   /*
   break for service directory
   */
-
+  .services-table {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .service-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    cursor: pointer;
+    background-color: #e5e8f6;
+    color: #333;
+  }
+  
+  .selected {
+    background-color: #b9c5f5;
+  }
+  
+  .provider-dropdown {
+    display: none;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  .provider-dropdown a {
+    display: block;
+    padding: 5px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .service-card.selected .provider-dropdown {
+    display: block;
+  }
+  
