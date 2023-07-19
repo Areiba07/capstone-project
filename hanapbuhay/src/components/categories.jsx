@@ -7,35 +7,35 @@ export default function Categories() {
       link: "serviceDirectory",
     },
     {
-      category: "Service 1",
+      category: "Plumbing",
       link: "service1",
     },
     {
-      category: "Service 2",
+      category: "Electrical",
       link: "service2",
     },
     {
-      category: "Service 3",
+      category: "House Cleaning",
       link: "service3",
     },
     {
-      category: "Service 4",
+      category: "Gardening and Landscaping",
       link: "service4",
     },
     {
-      category: "Service 5",
+      category: "Appliance Repair",
       link: "service5",
     },
     {
-      category: "Service 6",
+      category: "Laundry",
       link: "service6",
     },
     {
-      category: "Service 7",
+      category: "Tailoring",
       link: "service7",
     },
     {
-      category: "Service 8",
+      category: "Carpentry",
       link: "service8",
     },
   ];
