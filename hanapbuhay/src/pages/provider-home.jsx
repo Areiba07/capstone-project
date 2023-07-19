@@ -18,7 +18,7 @@ const UserPage = () => {
   const [date, setDate] = useState(null);
 
   const handleAddSchedule = () => {
-    // Implement logic to add schedule to calendar
+    // Implement logic to add schedule
     const newSchedule = {
       title: title,
       description: description,
