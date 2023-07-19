@@ -65,19 +65,13 @@ const RequestBoard = () => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        className="modal"
+        className="modal bg-violet-200 z-50 w-auto h-1/2 ml-96 pl-48 pr-48 mt-48"
         overlayClassName="overlay"
       >
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold">Create Request</h2>
-          <button
-            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-            onClick={closeModal}
-          >
-            Close
-          </button>
-        </div>
         <form onSubmit={handleSubmit}>
+        <div className="flex flex-col mb-4">
+          <h2 className="text-2xl font-bold">Create Request</h2>
+        </div>
           <label className="text-lg font-semibold mb-2">
             Request Title:
             <input
@@ -100,6 +94,12 @@ const RequestBoard = () => {
             type="submit"
           >
             Submit
+          </button>
+          <button
+            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+            onClick={closeModal}
+          >
+            Close
           </button>
         </form>
       </Modal>
