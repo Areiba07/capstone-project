@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Categories() {
   const categories = [
     {
-      category: "Service Directory",
+      category: "All",
       link: "serviceDirectory",
     },
     {
