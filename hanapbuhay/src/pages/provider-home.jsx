@@ -4,6 +4,7 @@ import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Header from "../components/header";
 
 const UserPage = () => {
   const [showAddScheduleModal, setShowAddScheduleModal] = useState(false);
@@ -59,6 +60,8 @@ const UserPage = () => {
   };
 
   return (
+    <>
+    <Header/>
     <div className="container">
       <div className="profile">
         <img
@@ -140,6 +143,7 @@ const UserPage = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

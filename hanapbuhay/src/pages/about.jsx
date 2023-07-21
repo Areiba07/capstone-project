@@ -1,6 +1,7 @@
 import { Button } from "flowbite-react";
 import HanapBuhayLogo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
+import 'tailwindcss/tailwind.css';
 
 export default function About() {
   return (
