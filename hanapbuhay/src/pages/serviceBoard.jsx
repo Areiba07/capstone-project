@@ -2,6 +2,7 @@ import "../assets/styles/index.css";
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import 'tailwindcss/tailwind.css';
+import { Button } from "flowbite-react";
 
 Modal.setAppElement('#root');
 
@@ -55,12 +56,12 @@ const RequestBoard = () => {
         Request Board
       </h1>
 
-      <button
-        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-4"
+      <Button gradientDuoTone="purpleToBlue" pill
+        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2  mt-4"
         onClick={openModal}
       >
         Add Request
-      </button>
+      </Button>
 
       <Modal
         isOpen={modalIsOpen}
@@ -103,7 +104,6 @@ const RequestBoard = () => {
           </button>
         </form>
       </Modal>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
         {requests.map((request) => (
           <div
