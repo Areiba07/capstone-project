@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/provider",
-        element: <SeekerSignup />,
+        element: <ProviderSignup />,
       },  {
         path: "/seeker",
         element: <SeekerSignup />,
@@ -112,24 +112,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/login",
-    element: <Login />,
-  },
-  {
     path: "/login/signup",  //signup on login page
     element: <Signup />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/seeker",
-    element: <SeekerSignup />,
-  },
-  {
-    path: "/provider",
-    element: <ProviderSignup />,
   },
   {
     path: "/provider-home",
