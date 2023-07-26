@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "../components/header-seeker";
+import Header from "../components/header-provider";
 import { Outlet } from "react-router";
 import FooterWithLogo from "../components/footer";
 const UserPage = () => {

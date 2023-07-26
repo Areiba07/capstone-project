@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Outlet } from "react-router";
 
 export default function Categories() {
   const categories = [
@@ -56,8 +57,11 @@ export default function Categories() {
   });
 
   return (
-    <nav className="bg-gray-200 p-4">
-      <ul className="flex justify-center space-x-4">{categoryList}</ul>
-    </nav>
+    <>
+      <nav className="bg-gray-200 p-4">
+        <ul className="flex justify-center space-x-4">{categoryList}</ul>
+      </nav>
+      {<Outlet />}
+    </>
   );
 }
