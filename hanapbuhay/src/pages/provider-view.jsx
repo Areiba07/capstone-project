@@ -4,7 +4,7 @@ import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Header from "../components/header";
+import Header from "../components/header-seeker";
 
 const ProviderView = () => {
   const [showAddScheduleModal, setShowAddScheduleModal] = useState(false);

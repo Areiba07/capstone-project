@@ -36,7 +36,7 @@ export default function SignUp() {
               <br />
               <div>
                 <Button gradientDuoTone="purpleToPink" pill>
-                  <Link to={"/provider"}>BE A SERVICE PROVIDER</Link>
+                  <Link to={"/providerSignup"}>BE A SERVICE PROVIDER</Link>
                 </Button>
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function SignUp() {
               <br />
               <div>
                 <Button gradientDuoTone="purpleToPink" pill>
-                  <Link to={"/seeker"}>BE A SERVICE SEEKER</Link>
+                  <Link to={"/seekerSignup"}>BE A SERVICE SEEKER</Link>
                 </Button>
               </div>
             </div>

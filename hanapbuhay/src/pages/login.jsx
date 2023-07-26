@@ -1,58 +1,69 @@
-import React from "react";
+import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
+import HanapBuhayLogo from "../assets/images/logo.png";
+import 'tailwindcss/tailwind.css';
 
-export default function Login() {
+export default function SignUp() {
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-      <div className="w-full p-6 m-auto bg-blue-50 rounded-md shadow-md lg:max-w-xl">
-        <form className="mt-6">
-          <div className="mb-2">
-            <label
-              for="email"
-              className="block text-sm font-semibold text-gray-800"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
+    <>
+      <div className="bg-gray-100 min-h-screen">
+        <div>
+          <img
+            alt="Hanap Buhay Logo"
+            className="  mx-auto justify-normal w-60 h-60"
+            src={HanapBuhayLogo}
+          />
+          <h1 className="text-center text-4xl font-bold text-gray-800 mb-6">
+            Welcome to HanapBuhay!
+          </h1>
+        </div>
+        <br />
+        <div className=" mx-20 text-justify justify-around flex flex-col md:flex-row  mb-8">
+            <div className="justify-between md:w-2/5 bg-violet-500 bg-opacity-70 p-6 rounded-lg mb-4">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                For Service Providers
+              </h2>
+              <p className="text-lg text-gray-700">
+                Discover a wide range of service opportunities from various
+                industries, all in one place. Our intelligent matching algorithm
+                analyzes your skills, qualifications, and preferences to present
+                you with relevant and personalized service listings. Whether
+                you're a freelancer, contractor, or business owner, HanapBuhay
+                has got you covered. Take advantage of our advanced search
+                filters, showcase your portfolio, and connect with service
+                seekers looking for your expertise.
+              </p>
+              <br />
+              <div>
+                <Button gradientDuoTone="purpleToPink" pill>
+                  <Link to={"/providerLogin"}>LOGIN AS PROVIDER</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="md:w-2/5 bg-blue-400 bg-opacity-80 p-6 rounded-lg mb-4">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                For Service Seekers
+              </h2>
+              <p className="text-lg text-gray-700">
+                Finding the right service provider for your needs is crucial,
+                and we're here to make the process efficient and effective.
+                HanapBuhay provides a powerful platform that enables you to
+                search and connect with qualified service providers. Post your
+                service requirements, browse through profiles, and engage with
+                service providers who meet your criteria. Our platform also
+                offers seamless communication channels, allowing you to discuss
+                project details, negotiate terms, and manage the hiring process
+                with ease.
+              </p>
+              <br />
+              <div>
+                <Button gradientDuoTone="purpleToPink" pill>
+                  <Link to={"/seekerLogin"}>LOGIN AS SEEKER</Link>
+                </Button>
+              </div>
+            </div>
           </div>
-          <div className="mb-2">
-            <label
-              for="password"
-              className="block text-sm font-semibold text-gray-800"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300  focus:outline-none focus:ring focus:ring-opacity-40"
-            />
-          </div>
-          <a href="#" className="text-xs text-purple-600 hover:underline">
-            Forget Password?
-          </a>
-          <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-              Login
-            </button>
-          </div>
-        </form>
-
-        <p className="mt-8 text-xs font-light text-center text-gray-700">
-          {" "}
-          Don't have an account?{" "}
-          <a>
-            <Link
-              to={"signup"}
-              className="font-medium text-purple-500 hover:underline"
-            >
-              Sign up
-            </Link>
-          </a>
-        </p>
       </div>
-    </div>
+    </>
   );
 }
