@@ -5,7 +5,7 @@ import seekerLogo from "../assets/images/seeker2.svg"
 import providerLogo from "../assets/images/provider2.svg"
 import 'tailwindcss/tailwind.css';
 
-export default function SignUp() {
+export default function Login() {
   return (
     <>
       <div className="bg-gray-100 min-h-screen">
