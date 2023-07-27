@@ -1,6 +1,7 @@
 
 import { Footer } from 'flowbite-react';
 import Logo from "../components/logo";
+import { Link } from "react-router-dom";
 
 
 
@@ -18,12 +19,14 @@ export default function FooterWithLogo() {
             name="Flowbite"
             src="https://flowbite.com/docs/images/logo.svg"
             /> 
-            <h1 className=" text-purple-700 font-bold ">HanapBuhay</h1>
+            <h1 className=" text-purple-700 font-bold ">HanapBuhaybuhay</h1>
           </div>
           <Footer.LinkGroup>
+            <Link to={"/about"}> 
             <Footer.Link href="#">
               About
             </Footer.Link>
+            </Link>
             <Footer.Link href="#">
               Privacy Policy
             </Footer.Link>
