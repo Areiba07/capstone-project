@@ -39,6 +39,11 @@ Require the JavaScript code that powers the interactive elements before the end 
     padding: 8px 16px;
     border-radius: 4px;
   }
+  #tempSearch{
+    position: absolute;
+    margin-left: 105%;
+    top: 22%;
+  }
   .App {
     display: flex;
     flex-wrap: wrap;

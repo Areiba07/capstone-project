@@ -32,6 +32,7 @@ import Index from "./components/index";
 import Categories from "./components/categories";
 import RequestBoard from "./pages/requestBoard";
 import SeekerView from "./pages/seeker-view";
+import SearchResult from "./pages/searchResult";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/seekerSignup",
         element: <SeekerSignup />,
+      },
+      {
+        path: "/searchResult",
+        element: <SearchResult />,
       },
       {
         path: "/service",

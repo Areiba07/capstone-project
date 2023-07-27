@@ -1,6 +1,7 @@
 import "../assets/styles/index.css";
 import Logo from "../components/logo";
 import NavbarItems from "./navbar-items";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -64,6 +65,14 @@ export default function Header() {
                   class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search..."
                 />
+                <button id="tempSearch">
+                  <Link
+                    to={"searchResult"}
+                    className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                  >
+                    Search
+                  </Link>
+                </button>
               </div>
               <button
                 data-collapse-toggle="navbar-search"
