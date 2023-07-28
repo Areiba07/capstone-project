@@ -83,7 +83,7 @@ function ServiceCards() {
             <h2>{e.title}</h2>
             <p>{e.description}</p>
             <button>
-              <Link to={e.link}>Read more</Link>
+              <Link to={e.link}>View Provider</Link>
             </button>
           </div>
         </div>

@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import Header from "../components/header-provider";
 import { Outlet } from "react-router";
 import FooterWithLogo from "../components/footer";
+import ModalChatBox from "../components/modalChat";
 const UserPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   return (
     <>
       <Header />
@@ -29,6 +39,13 @@ const UserPage = () => {
           <div class="p-4">
             <h2 class="text-xl font-semibold">Request Title</h2>
             <p class="text-gray-600 mt-2">Request Description</p>
+            <button
+              class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              onClick={handleOpenModal}
+            >
+              Contact Seeker
+            </button>
+            {showModal && <ModalChatBox onClose={handleCloseModal} />}
           </div>
         </div>
       </div>

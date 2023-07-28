@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Header from "../components/header-provider";
 import { Outlet } from "react-router";
 import FooterWithLogo from "../components/footer";
+import "../assets/styles/index.css";
 
 const UserPage = () => {
   const [showAddScheduleModal, setShowAddScheduleModal] = useState(false);
@@ -63,89 +64,108 @@ const UserPage = () => {
 
   return (
     <>
-    <Header/>
-    <div className="container">
-      <div className="profile">
-        <img
-          src="https://via.placeholder.com/150"
-          alt="Profile Image"
-          className="profile-image"
-        />
-        <div className="details">
-          <h2>User Name</h2>
-          <p>User Bio</p>
+      <Header />
+      <div className="container">
+        <div className="profile">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Profile Image"
+            className="profile-image"
+          />
+          <div className="details">
+            <h2>User Name</h2>
+            <p>User Bio</p>
+          </div>
         </div>
+
+        <div className="schedule">
+          <h3>Booking Schedule</h3>
+          {bookings.map((booking, index) => (
+            <div key={index} className="cardSched">
+              <h4>{booking.title}</h4>
+              <p>
+                {booking.description.length > 100
+                  ? booking.description.slice(0, 100) + "..."
+                  : booking.description}
+              </p>
+              <p>{booking.date.toLocaleDateString()}</p>
+            </div>
+          ))}
+          <button onClick={() => setShowAddScheduleModal(true)}>
+            Add Schedule
+          </button>
+        </div>
+
+        <div className="rating">
+          <h3>Rating</h3>
+          {ratings.map((rating, index) => (
+            <div key={index} className="card">
+              <div className="stars">{renderStars(rating.rating, 5)}</div>
+              <p>{rating.comment}</p>
+            </div>
+          ))}
+          <button onClick={() => setShowRatingModal(true)}>
+            View Ratings
+          </button>
+        </div>
+
+        {showAddScheduleModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <h2>Add Schedule</h2>
+              <input
+                type="text"
+                placeholder="Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <textarea
+                placeholder="Description"
+                rows="5"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
+              <DatePicker
+                selected={date}
+                onChange={(date) => setDate(date)}
+                dateFormat="MMMM d, yyyy"
+                placeholderText="Select a Date"
+              />
+              <button onClick={handleAddSchedule}>Add</button>
+              <button onClick={() => setShowAddScheduleModal(false)}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+
+        {showRatingModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <button onClick={() => setShowRatingModal(false)}>Close</button>
+              <h2>Rating & Comments</h2>
+              <div>
+                <div className="stars">{renderStars(4)}</div>
+                <textarea
+                  rows="2"
+                  value="Good Service"
+                  onChange={(e) => setComment(e.target.value)}
+                ></textarea>
+              </div>
+              <div>
+                <div className="stars">{renderStars(3)}</div>
+                <textarea
+                  placeholder="Leave a comment"
+                  rows="2"
+                  value="Ok Service"
+                  onChange={(e) => setComment(e.target.value)}
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-
-      <div className="schedule">
-        <h3>Booking Schedule</h3>
-        {bookings.map((booking, index) => (
-          <div key={index} className="card">
-            <h4>{booking.title}</h4>
-            <p>{booking.description.length > 100 ? booking.description.slice(0, 100) + "..." : booking.description}</p>
-            <p>{booking.date.toLocaleDateString()}</p>
-          </div>
-        ))}
-        <button onClick={() => setShowAddScheduleModal(true)}>Add Schedule</button>
-      </div>
-
-      <div className="rating">
-  <h3>Rating</h3>
-  {ratings.map((rating, index) => (
-    <div key={index} className="card">
-      <div className="stars">{renderStars(rating.rating, 5)}</div>
-      <p>{rating.comment}</p>
-    </div>
-  ))}
-  <button onClick={() => setShowRatingModal(true)}>Leave a Rating</button>
-</div>
-
-      {showAddScheduleModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Add Schedule</h2>
-            <input
-              type="text"
-              placeholder="Title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <textarea
-              placeholder="Description"
-              rows="5"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-            <DatePicker
-              selected={date}
-              onChange={(date) => setDate(date)}
-              dateFormat="MMMM d, yyyy"
-              placeholderText="Select a Date"
-            />
-            <button onClick={handleAddSchedule}>Add</button>
-            <button onClick={() => setShowAddScheduleModal(false)}>Cancel</button>
-          </div>
-        </div>
-      )}
-
-      {showRatingModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Rating & Comment</h2>
-            <div className="stars">{renderStars(5)}</div>
-            <textarea
-              placeholder="Leave a comment"
-              rows="4"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-            ></textarea>
-            <button onClick={handleRatingSubmit}>Submit</button>
-            <button onClick={() => setShowRatingModal(false)}>Cancel</button>
-          </div>
-        </div>
-      )}
-    </div>
-    <div>{<Outlet />}</div>
+      <div>{<Outlet />}</div>
       <FooterWithLogo />
     </>
   );
