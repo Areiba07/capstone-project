@@ -30,7 +30,7 @@ export default function Login() {
               <Link to={"/providerLogin"}>              
               <img
                   alt="providerLogo"
-                  className=" hover:bg-indigo-200 rounded-full mx-auto justify-normal w-52 h-52"
+                  className=" hover:bg-indigo-200 rounded-full mx-auto justify-normal w-100 h-100"
                   src={providerLogo}
               />
               </Link>
@@ -44,7 +44,7 @@ export default function Login() {
               <Link to={"/seekerLogin"}>              
               <img
                   alt="seekerLogo"
-                  className=" hover:bg-indigo-200 rounded-full  mx-auto justify-normal w-52 h-52"
+                  className=" hover:bg-indigo-200 rounded-full  mx-auto justify-normal w-100 h-100"
                   src={seekerLogo}
               />
               </Link>
