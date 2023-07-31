@@ -104,9 +104,7 @@ const UserPage = () => {
               <p>{rating.comment}</p>
             </div>
           ))}
-          <button onClick={() => setShowRatingModal(true)}>
-            View Ratings
-          </button>
+          <button onClick={() => setShowRatingModal(true)}>View Ratings</button>
         </div>
 
         {showAddScheduleModal && (
@@ -145,6 +143,7 @@ const UserPage = () => {
               <button onClick={() => setShowRatingModal(false)}>Close</button>
               <h2>Rating & Comments</h2>
               <div>
+                <p>Seeker Name</p>
                 <div className="stars">{renderStars(4)}</div>
                 <textarea
                   rows="2"
@@ -153,6 +152,7 @@ const UserPage = () => {
                 ></textarea>
               </div>
               <div>
+                <p>Seeker Name</p>
                 <div className="stars">{renderStars(3)}</div>
                 <textarea
                   placeholder="Leave a comment"
