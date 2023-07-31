@@ -8,14 +8,6 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Services from "./pages/service";
 import Login from "./pages/login";
-import Service1 from "./pages/service1";
-import Service2 from "./pages/service2";
-import Service3 from "./pages/service3";
-import Service4 from "./pages/service4";
-import Service5 from "./pages/service5";
-import Service6 from "./pages/service6";
-import Service7 from "./pages/service7";
-import Service8 from "./pages/service8";
 import GeneralServices from "./pages/generalService";
 import "flowbite/dist/flowbite.css";
 import Signup from "./pages/signup";
@@ -33,6 +25,7 @@ import Categories from "./components/categories";
 import RequestBoard from "./pages/requestBoard";
 import SeekerView from "./pages/seeker-view";
 import SearchResult from "./pages/searchResult";
+import ServiceCards from "./components/servicesCards";
 
 const router = createBrowserRouter([
   {
@@ -85,36 +78,8 @@ const router = createBrowserRouter([
             element: <ServiceDirectory />,
           },
           {
-            path: "/service/service1",
-            element: <Service1 />,
-          },
-          {
-            path: "/service/service2",
-            element: <Service2 />,
-          },
-          {
-            path: "/service/service3",
-            element: <Service3 />,
-          },
-          {
-            path: "/service/service4",
-            element: <Service4 />,
-          },
-          {
-            path: "/service/service5",
-            element: <Service5 />,
-          },
-          {
-            path: "/service/service6",
-            element: <Service6 />,
-          },
-          {
-            path: "/service/service7",
-            element: <Service7 />,
-          },
-          {
-            path: "/service/service8",
-            element: <Service8 />,
+            path: "/service/serviceCards",
+            element: <ServiceCards />,
           },
         ],
       },
@@ -166,36 +131,8 @@ const router = createBrowserRouter([
             element: <ServiceDirectory />,
           },
           {
-            path: "/seeker-home/service/service1",
-            element: <Service1 />,
-          },
-          {
-            path: "/seeker-home/service/service2",
-            element: <Service2 />,
-          },
-          {
-            path: "/seeker-home/service/service3",
-            element: <Service3 />,
-          },
-          {
-            path: "/seeker-home/service/service4",
-            element: <Service4 />,
-          },
-          {
-            path: "/seeker-home/service/service5",
-            element: <Service5 />,
-          },
-          {
-            path: "/seeker-home/service/service6",
-            element: <Service6 />,
-          },
-          {
-            path: "/seeker-home/service/service7",
-            element: <Service7 />,
-          },
-          {
-            path: "/seeker-home/service/service8",
-            element: <Service8 />,
+            path: "/seeker-home/service/serviceCards",
+            element: <ServiceCards />,
           },
         ],
       },

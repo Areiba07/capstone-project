@@ -9,35 +9,35 @@ export default function Categories() {
     },
     {
       category: "Plumbing",
-      link: "service1",
+      link: "serviceCards",
     },
     {
       category: "Electrical",
-      link: "service2",
+      link: "serviceCards",
     },
     {
       category: "House Cleaning",
-      link: "service3",
+      link: "serviceCards",
     },
     {
       category: "Gardening and Landscaping",
-      link: "service4",
+      link: "serviceCards",
     },
     {
       category: "Appliance Repair",
-      link: "service5",
+      link: "serviceCards",
     },
     {
       category: "Laundry",
-      link: "service6",
+      link: "serviceCards",
     },
     {
       category: "Tailoring",
-      link: "service7",
+      link: "serviceCards",
     },
     {
       category: "Carpentry",
-      link: "service8",
+      link: "serviceCards",
     },
   ];
 

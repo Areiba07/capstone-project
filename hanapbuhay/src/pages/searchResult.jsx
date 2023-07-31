@@ -98,14 +98,13 @@ const App = () => {
             />
           </div>
           <div>
-            <FontAwesomeIcon icon={solidStar} className="text-yellow-500 mr-1" />
-            <FontAwesomeIcon icon={regularStar} className="text-yellow-500 mr-1" />
+            Star Rating:
             <input
               type="number"
               placeholder="Min Star Rating"
               value={starRating}
               onChange={handleStarRatingFilter}
-              className="px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300 w-1/4"
+              className="px-10 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300 w-1/4"
             />
           </div>
         </div>

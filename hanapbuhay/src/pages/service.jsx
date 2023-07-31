@@ -1,5 +1,4 @@
 import Categories from "../components/categories";
-import { Outlet } from "react-router";
 import Carousel from "../components/carousel";
 
 export default function Services() {
@@ -7,10 +6,6 @@ export default function Services() {
       <>
         <Carousel />
         <Categories/>
-        <h1>SERVICES</h1>
-        <div>
-          {<Outlet/>}
-        </div>
       </>
     );
   }
