@@ -15,9 +15,9 @@ function NavbarItems() {
       link: "/provider-home",
     },
     {
-        nav: "Logout",
-        link: "/home",
-      },
+      nav: "Logout",
+      link: "/home",
+    },
   ];
   const itemList = navItems.map((e, index) => {
     return (
