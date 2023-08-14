@@ -4,6 +4,8 @@ import Modal from "react-modal";
 import "tailwindcss/tailwind.css";
 import { Button } from "flowbite-react";
 import "../assets/styles/serviceRequest.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 Modal.setAppElement("#root");
 
@@ -12,6 +14,9 @@ const RequestBoard = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [requestTitle, setRequestTitle] = useState("");
   const [requestDetails, setRequestDetails] = useState("");
+  const [startDate, setRequestStartDate] = useState(new Date());
+  const [endDate, setRequestEndDate] = useState(new Date());
+  const [selectedRequest, setSelectedRequest] = useState(null);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -29,6 +34,16 @@ const RequestBoard = () => {
     setRequestDetails(e.target.value);
   };
 
+  const handleStartDateChange = (date) => {
+    setRequestStartDate(date);
+  };
+  const handleEndDateChange = (date) => {
+    setRequestEndDate(date);
+  };
+  const handleSeeMore = (request) => {
+    setSelectedRequest(request);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -36,11 +51,15 @@ const RequestBoard = () => {
       id: Date.now(),
       title: requestTitle,
       details: requestDetails,
+      startDate: startDate.toLocaleDateString(),
+      endDate: endDate.toLocaleDateString(),
     };
 
     setRequests([...requests, newRequest]);
     setRequestTitle("");
     setRequestDetails("");
+    setRequestStartDate(new Date());
+    setRequestEndDate(new Date());
     closeModal();
   };
 
@@ -93,6 +112,22 @@ const RequestBoard = () => {
               onChange={handleDetailsChange}
             />
           </label>
+          <label className="form-label">
+            Start Date:
+            <DatePicker
+              selected={startDate}
+              onChange={handleStartDateChange}
+              className="form-input"
+            />
+          </label>
+          <label className="form-label">
+            End Date:
+            <DatePicker
+              selected={endDate}
+              onChange={handleEndDateChange}
+              className="form-input"
+            />
+          </label>
           <div className="modal-buttons">
             <button className="btn btn-primary" type="submit">
               Submit
@@ -114,15 +149,49 @@ const RequestBoard = () => {
             <h3 className="text-xl font-semibold mb-2 bg-blue-500 text-white py-2 px-4 rounded">
               {request.title}
             </h3>
-            <p className="bg-white border-4 text-gray-800 p-2 rounded h-20 overflow-hidden">
-              {truncateDetails(request.details, 100)}
+            <p className="text-gray-600">
+              {truncateDetails(request.details, 50)}
             </p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-4 font-bold">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-4 font-bold"
+              onClick={() => handleSeeMore(request)}
+            >
               See More
             </button>
           </div>
         ))}
       </div>
+
+      {selectedRequest && (
+        <div className="fixed inset-0 flex items-center justify-center z-10 bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded w-96">
+            <h2 className="text-lg font-semibold mb-4">
+              {selectedRequest.title}
+            </h2>
+            <p className="text-gray-600 mb-4">{selectedRequest.details}</p>
+            <p className="mb-2">Start Date: {selectedRequest.startDate}</p>
+            <p className="mb-2">End Date: {selectedRequest.endDate}</p>
+            <div className="flex flex-row">
+            <button
+              className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
+              onClick={() => setSelectedRequest(null)}
+            >
+              Close
+            </button>
+            <button
+              className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded"
+            >
+              Accept Request
+            </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            >
+              Contact Requester
+            </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
