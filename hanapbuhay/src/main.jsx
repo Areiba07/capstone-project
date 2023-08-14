@@ -66,6 +66,10 @@ const router = createBrowserRouter([
         element: <SearchResult />,
       },
       {
+        path: "/serviceBoard",
+        element: <ServiceBoard />,
+      },
+      {
         path: "/service",
         element: <Services />,
         children: [
