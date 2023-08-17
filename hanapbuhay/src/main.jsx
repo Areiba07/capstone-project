@@ -26,6 +26,10 @@ import RequestBoard from "./pages/requestBoard";
 import SeekerView from "./pages/seeker-view";
 import SearchResult from "./pages/searchResult";
 import ServiceCards from "./components/servicesCards";
+import AccountInfo from "./components/account-info";
+import AccountMessage from "./components/account-messages";
+import AccountNotification from "./components/account-notifications";
+import AccountFeedback from "./components/account-feedback";
 
 const router = createBrowserRouter([
   {
@@ -104,12 +108,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Index />,
-      },{
+      },
+      {
         path: "/provider-home/home",
-        element: <GeneralServices/>,
-      },{
+        element: <GeneralServices />,
+      },
+      {
         path: "/provider-home/serviceboard",
-        element: <RequestBoard/>,
+        element: <RequestBoard />,
       },
     ],
   },
@@ -119,30 +125,28 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Index />,
+        element: <Home />,
       },
-      { path: "/seeker-home/home", element: <Index /> },
-      {
-        path: "/seeker-home/service",
-        element: <Categories />,
-        children: [
-          {
-            index: true,
-            element: <GeneralServices />,
-          },
-          {
-            path: "/seeker-home/service/serviceDirectory",
-            element: <ServiceDirectory />,
-          },
-          {
-            path: "/seeker-home/service/serviceCards",
-            element: <ServiceCards />,
-          },
-        ],
-      },
+      { path: "/seeker-home/home", element: <Home /> },
       {
         path: "/seeker-home/serviceBoard",
         element: <ServiceBoard />,
+      },
+      {
+        path: "/seeker-home/account-info",
+        element: <AccountInfo />,
+      },
+      {
+        path: "/seeker-home/account-messages",
+        element: <AccountMessage />,
+      },
+      {
+        path: "/seeker-home/account-notifications",
+        element: <AccountNotification />,
+      },
+      {
+        path: "/seeker-home/account-feedback",
+        element: <AccountFeedback />,
       },
     ],
   },
@@ -152,7 +156,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/seeker-view",
-    element: <SeekerView/>,
+    element: <SeekerView />,
   },
   {
     path: "/providerLogin",
