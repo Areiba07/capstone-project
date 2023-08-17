@@ -7,16 +7,8 @@ function NavbarItems() {
       link: "home",
     },
     {
-      nav: "Services",
-      link: "service",
-    },
-    {
       nav: "Service Request Board",
       link: "serviceBoard",
-    },
-    {
-      nav: "Profile",
-      link: "/seeker-home",
     },
     {
         nav: "Logout",
