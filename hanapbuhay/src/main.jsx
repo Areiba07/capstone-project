@@ -30,6 +30,7 @@ import AccountInfo from "./components/account-info";
 import AccountMessage from "./components/account-messages";
 import AccountNotification from "./components/account-notifications";
 import AccountFeedback from "./components/account-feedback";
+import AccountBookmark from "./components/account-bookmark";
 
 const router = createBrowserRouter([
   {
@@ -143,6 +144,10 @@ const router = createBrowserRouter([
       {
         path: "/seeker-home/account-notifications",
         element: <AccountNotification />,
+      },
+      {
+        path: "/seeker-home/account-bookmark",
+        element: <AccountBookmark />,
       },
       {
         path: "/seeker-home/account-feedback",

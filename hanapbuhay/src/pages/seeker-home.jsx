@@ -8,8 +8,8 @@ let username = "John Doe";
 const UserPage = () => {
   return (
     <>
-      <Header />
-      <SearchComponent/>
+      <div className="pl-32"><Header /></div>
+      <div className="pl-80"><SearchComponent/></div>
       <div className="sidebar w-80 bg-gray-100 p-6 flex flex-col items-center fixed top-0 left-0 h-screen">
         <img
           src="https://picsum.photos/200"
@@ -35,12 +35,17 @@ const UserPage = () => {
           </li>
           <li className="cursor-pointer">
             <a>
+              <Link to="/seeker-home/account-bookmark">Bookmarks</Link>
+            </a>
+          </li>
+          <li className="cursor-pointer">
+            <a>
               <Link to="/seeker-home/account-feedback">Feedback</Link>
             </a>
           </li>
         </ul>
       </div>
-      <div className="-z-10">{<Outlet />}</div>
+      <div className="-z-10 ml-80">{<Outlet />}</div>
       <FooterWithLogo />
     </>
   );
