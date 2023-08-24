@@ -15,9 +15,7 @@ export default function Login() {
             className="  mx-auto justify-normal w-60 h-60"
             src={HanapBuhayLogo}
           />
-          <h1 className="text-center text-4xl font-bold text-gray-800 mb-6">
-            Welcome to HanapBuhay!
-          </h1>
+
           <h2 className="text-center text-4xl font-bold text-gray-800 mb-6">Login as:</h2>
         </div>
         <br />

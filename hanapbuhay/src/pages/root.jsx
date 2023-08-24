@@ -7,7 +7,6 @@ export default function Root() {
   return (
     <>
       <Header />
-      <SearchComponent />
       <div>{<Outlet />}</div>
       <FooterWithLogo />
     </>
