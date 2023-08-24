@@ -1,12 +1,11 @@
-import Header from "../components/header";
-import SearchComponent from "../components/search";
 import { Outlet } from "react-router";
 import FooterWithLogo from "../components/footer";
+import NavbarWithCTAButton from "../components/navbar-main"
 
 export default function Root() {
   return (
     <>
-      <Header />
+      <NavbarWithCTAButton />
       <div>{<Outlet />}</div>
       <FooterWithLogo />
     </>
