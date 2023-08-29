@@ -12,9 +12,9 @@ export default function NavbarWithCTAButton() {
       fluid
       rounded
     >
-      <Navbar.Brand href="https://flowbite-react.com">
+      <Navbar.Brand href="/home">
         <Logo />
-        <span className="self-center whitespace-nowrap text-3xl font-semibold dark:text-white">
+        <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
           HanapBuhay
         </span>
       </Navbar.Brand>
