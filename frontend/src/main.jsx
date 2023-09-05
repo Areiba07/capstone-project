@@ -31,6 +31,8 @@ import AccountMessage from "./components/account-messages";
 import AccountNotification from "./components/account-notifications";
 import AccountFeedback from "./components/account-feedback";
 import AccountBookmark from "./components/account-bookmark";
+import BrowseCategories from "./components/browse-categories";
+import AccountBooking from "./components/account-booking";
 
 const router = createBrowserRouter([
   {
@@ -126,9 +128,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <BrowseCategories />,
       },
-      { path: "/seeker-home/home", element: <Home /> },
+      { path: "/seeker-home/home", element: <BrowseCategories /> },
       {
         path: "/seeker-home/serviceBoard",
         element: <ServiceBoard />,
@@ -144,6 +146,10 @@ const router = createBrowserRouter([
       {
         path: "/seeker-home/account-notifications",
         element: <AccountNotification />,
+      },
+      {
+        path: "/seeker-home/account-booking",
+        element: <AccountBooking />,
       },
       {
         path: "/seeker-home/account-bookmark",

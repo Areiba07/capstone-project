@@ -35,6 +35,11 @@ const UserPage = () => {
           </li>
           <li className="cursor-pointer">
             <a>
+              <Link to="/seeker-home/account-booking">Booking</Link>
+            </a>
+          </li>
+          <li className="cursor-pointer">
+            <a>
               <Link to="/seeker-home/account-bookmark">Bookmarks</Link>
             </a>
           </li>

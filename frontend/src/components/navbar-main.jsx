@@ -31,9 +31,6 @@ export default function NavbarWithCTAButton() {
         <Navbar.Link as={Link} to="/about"> {/* Use 'as={Link}' for routing */}
           About
         </Navbar.Link>        
-        <Navbar.Link as={Link} to="/service"> {/* Use 'as={Link}' for routing */}
-          Services
-        </Navbar.Link>
         <Navbar.Link as={Link} to="/serviceBoard"> {/* Use 'as={Link}' for routing */}
           Service Board
         </Navbar.Link>
