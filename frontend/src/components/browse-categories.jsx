@@ -66,8 +66,8 @@ function BrowseCategories() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center bg-gray-100">
-      <div className="grid grid-cols-5 md:grid-cols-5 gap-4 mt-5">
+    <div className=" flex flex-col justify-center items-center bg-gray-100">
+      <div className="grid lg:grid-cols-5 gap-4 mt-5">
         {visibleCategories.map((category, index) => (
           <CategoryCard
             key={index}
