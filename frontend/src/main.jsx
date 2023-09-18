@@ -33,6 +33,8 @@ import AccountFeedback from "./components/account-feedback";
 import AccountBookmark from "./components/account-bookmark";
 import BrowseCategories from "./components/browse-categories";
 import AccountBooking from "./components/account-booking";
+import AdminLogin from "./pages/adminLogin";
+import AdminHome from "./pages/admin-home";
 
 const router = createBrowserRouter([
   {
@@ -176,6 +178,14 @@ const router = createBrowserRouter([
   {
     path: "/seekerLogin",
     element: <SeekerLogin />,
+  },
+  {
+    path: "/adminLogin",
+    element: <AdminLogin />,
+  },
+  {
+    path: "/admin-home",
+    element: <AdminHome />,
   },
 ]);
 
