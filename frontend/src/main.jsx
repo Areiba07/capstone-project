@@ -79,6 +79,10 @@ const router = createBrowserRouter([
         element: <ServiceBoard />,
       },
       {
+        path: "/serviceCards",
+        element: <ServiceCards />,
+      },
+      {
         path: "/service",
         element: <Services />,
         children: [

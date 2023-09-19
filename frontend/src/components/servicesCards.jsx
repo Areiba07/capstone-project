@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 function ServiceCards() {
   const servCards = [
     {
@@ -90,7 +89,7 @@ function ServiceCards() {
       </>
     );
   });
-  return <div className="App">{serviceCards}</div>;
+  return <><h1>Services of Category Selected</h1><div className="App">{serviceCards}</div></>;
 }
 
 export default ServiceCards;
