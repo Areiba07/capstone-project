@@ -4,7 +4,7 @@ import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Header from "../components/header-seeker";
+import Header from "../components/navbar-main";
 import ModalChatBox from "../components/modalChat";
 
 const ProviderView = () => {
@@ -17,6 +17,37 @@ const ProviderView = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  //Approved feedbacks
+  const fixedRaters = [
+    { name: "John Doe", rating: 4, comment: "Great service!" },
+    { name: "Jane Smith", rating: 5, comment: "Highly recommended!" },
+    { name: "Tom Johnson", rating: 3, comment: "Good experience." },
+    { name: "Alice Brown", rating: 4, comment: "Nice service." },
+    { name: "Eva Lee", rating: 2, comment: "Could be better." },
+  ];
+
+  // Approved/Fixed booking services with status (blue for done, red for canceled, green for active)
+  const fixedBookings = [
+    {
+      title: "Service 1",
+      description: "Sample description of Service 1.",
+      date: new Date("2023-09-25"),
+      status: "done", // Blue
+    },
+    {
+      title: "Service 2",
+      description: "Sample description of Service 2.",
+      date: new Date("2023-10-05"),
+      status: "canceled", // Red
+    },
+    {
+      title: "Service 3",
+      description: "Sample description of Service 3.",
+      date: new Date("2023-10-15"),
+      status: "active", // Green
+    },
+  ];
+
   const [showAddScheduleModal, setShowAddScheduleModal] = useState(false);
   const [showRatingModal, setShowRatingModal] = useState(false);
   const [rating, setRating] = useState(0);
@@ -34,6 +65,7 @@ const ProviderView = () => {
       title: title,
       description: description,
       date: date,
+      status: "Pending"
     };
     setBookings([...bookings, newSchedule]);
     setShowAddScheduleModal(false);
@@ -80,8 +112,8 @@ const ProviderView = () => {
             className="profile-image"
           />
           <div className="details">
-            <h2>User Name</h2>
-            <p>User Bio</p>
+            <h2>Service Name</h2>
+            <p>Service Details</p>
           </div>
         </div>
         <div className="contact">
@@ -123,6 +155,41 @@ const ProviderView = () => {
           <button onClick={() => setShowRatingModal(true)}>
             Leave a Rating
           </button>
+        </div>
+
+        <div className="rating">
+         
+          {fixedRaters.map((rater, index) => (
+            <div key={index} className="cardSched">
+              <p>{rater.name}</p>
+              <div className="stars">{renderStars(rater.rating, 5)}</div>
+              <p>{rater.comment}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="schedule">
+          <h3>Booking Schedule</h3>
+          {fixedBookings.map((booking, index) => (
+            <div
+              key={index}
+              className={`cardSched ${
+                booking.status === "done"
+                  ? "bg-blue-300"
+                  : booking.status === "canceled"
+                  ? "bg-red-300"
+                  : "bg-green-300"
+              }`}
+            >
+              <h4>{booking.title}</h4>
+              <p>
+                {booking.description.length > 100
+                  ? booking.description.slice(0, 100) + "..."
+                  : booking.description}
+              </p>
+              <p>{booking.date.toLocaleDateString()}</p>
+            </div>
+          ))}
         </div>
 
         {showAddScheduleModal && (
