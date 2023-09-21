@@ -26,15 +26,19 @@ import RequestBoard from "./pages/requestBoard";
 import SeekerView from "./pages/seeker-view";
 import SearchResult from "./pages/searchResult";
 import ServiceCards from "./components/servicesCards";
-import AccountInfo from "./components/account-info";
-import AccountMessage from "./components/account-messages";
-import AccountNotification from "./components/account-notifications";
-import AccountFeedback from "./components/account-feedback";
-import AccountBookmark from "./components/account-bookmark";
+import AccountInfo from "./pages/account-info";
+import AccountMessage from "./pages/account-messages";
+import AccountNotification from "./pages/account-notifications";
+import AccountFeedback from "./pages/account-feedback";
+import AccountBookmark from "./pages/account-bookmark";
 import BrowseCategories from "./components/browse-categories";
-import AccountBooking from "./components/account-booking";
+import AccountBooking from "./pages/account-booking";
 import AdminLogin from "./pages/adminLogin";
 import AdminHome from "./pages/admin-home";
+import AdminServices from './pages/admin-manage-services';
+import AdminUsers from './pages/admin-manage-users';
+import AdminPendingServices from './pages/admin-review-service-request';
+import AdminReviewFeedback from './pages/admin-review-feedback';
 
 const router = createBrowserRouter([
   {
@@ -164,6 +168,36 @@ const router = createBrowserRouter([
       {
         path: "/seeker-home/account-feedback",
         element: <AccountFeedback />,
+      },
+    ],
+  },
+  {
+    path: "/admin-home",
+    element: <AdminHome />,
+    children: [
+      {
+        index: true,
+        element: <AdminServices />,
+      },
+      {
+        path: "/admin-home/admin-manage-services",
+        element: <AdminServices />,
+      },
+      {
+        path: "/admin-home/admin-manage-users",
+        element: <AdminUsers />,
+      },
+      {
+        path: "/admin-home/admin-review-service-request",
+        element: <AdminPendingServices />,
+      },
+      {
+        path: "/admin-home/admin-review-feedback",
+        element: <AdminReviewFeedback />,
+      },
+      {
+        path: "/admin-home/logout",
+        element: <Index />,
       },
     ],
   },

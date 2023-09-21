@@ -3,7 +3,7 @@ import { Button, Navbar } from 'flowbite-react';
 import { Link } from 'react-router-dom'; 
 import Logo from "../components/logo"; 
 
-export default function NavbarWithCTAButton() {
+export default function navbarAdmin() {
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} to="/home"> 
@@ -13,26 +13,23 @@ export default function NavbarWithCTAButton() {
         </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Button as={Link} to="/login" gradientDuoTone="purpleToPink"> 
-          Login
-        </Button>
-        <span className="self-center text-md font-semibold mr-2 ml-2 dark:text-white">
-          OR
-        </span>
-        <Button as={Link} to="/signup" gradientDuoTone="purpleToPink" className="mr-2"> 
-          SignUp
+        <Button as={Link} to="/home" gradientDuoTone="purpleToPink" className="mr-2"> 
+          Logout
         </Button>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link as={Link} to="/home"> 
-          Home
+        <Navbar.Link as={Link} to="/admin-home/admin-manage-services"> 
+          SERVICES
         </Navbar.Link>
-        <Navbar.Link as={Link} to="/about"> 
-          About
+        <Navbar.Link as={Link} to="/admin-home/admin-manage-users"> 
+          USERS
         </Navbar.Link>        
-        <Navbar.Link as={Link} to="/serviceBoard">
-          Service Board
+        <Navbar.Link as={Link} to="/admin-home/admin-review-service-request">
+          PENDING SERVICES
+        </Navbar.Link>
+        <Navbar.Link as={Link} to="/admin-home/admin-review-feedback">
+          REVIEW FEEDBACKS
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

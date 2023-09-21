@@ -1,7 +1,13 @@
+import { Outlet } from "react-router";
+import FooterWithLogo from "../components/footer";
+import NavbarWithCTAButton from "../components/navbar-admin";
+
 export default function adminHome() {
   return (
     <>
-        <h1>TO DO</h1>
+      <NavbarWithCTAButton />
+      <div>{<Outlet />}</div>
+      <FooterWithLogo />
     </>
   );
 }
