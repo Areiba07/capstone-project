@@ -39,6 +39,7 @@ import AdminServices from './pages/admin-manage-services';
 import AdminUsers from './pages/admin-manage-users';
 import AdminPendingServices from './pages/admin-review-service-request';
 import AdminReviewFeedback from './pages/admin-review-feedback';
+import AccountService from "./pages/account-services";
 
 const router = createBrowserRouter([
   {
@@ -150,6 +151,10 @@ const router = createBrowserRouter([
         element: <AccountInfo />,
       },
       {
+        path: "/seeker-home/account-services",
+        element: <AccountService />,
+      },
+      {
         path: "/seeker-home/account-messages",
         element: <AccountMessage />,
       },
@@ -168,6 +173,14 @@ const router = createBrowserRouter([
       {
         path: "/seeker-home/account-feedback",
         element: <AccountFeedback />,
+      },
+      {
+        path: "/seeker-home/servicesCards",
+        element: <ServiceCards />,
+      },
+      {
+        path: "/seeker-home/provider-view",
+        element: <ProviderView />,
       },
     ],
   },

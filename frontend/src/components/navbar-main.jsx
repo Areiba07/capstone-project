@@ -17,7 +17,7 @@ export default function NavbarWithCTAButton() {
           Login
         </Button>
         <span className="self-center text-md font-semibold mr-2 ml-2 dark:text-white">
-          OR
+          
         </span>
         <Button as={Link} to="/signup" gradientDuoTone="purpleToPink" className="mr-2"> 
           SignUp

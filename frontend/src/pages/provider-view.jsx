@@ -31,7 +31,7 @@ const ProviderView = () => {
     {
       title: "Service 1",
       description: "Sample description of Service 1.",
-      date: new Date("2023-09-25"),
+      date: new Date("2023-09-20"),
       status: "done", // Blue
     },
     {
@@ -103,7 +103,6 @@ const ProviderView = () => {
 
   return (
     <>
-      <Header />
       <div className="container">
         <div className="profile">
           <img
