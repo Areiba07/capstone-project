@@ -31,9 +31,9 @@ export default function NavbarWithCTAButton() {
         <Navbar.Link as={Link} to="/about"> 
           About
         </Navbar.Link>        
-        <Navbar.Link as={Link} to="/serviceBoard">
+       {/**  <Navbar.Link as={Link} to="/serviceBoard">
           Service Board
-        </Navbar.Link>
+        </Navbar.Link>*/}
       </Navbar.Collapse>
     </Navbar>
   )

@@ -1,43 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CategoryCard from "./category-card";
+import axios from "axios";
 
-const categories = [
+/*const categories = [
   {
-    title: "Category 1",
+    title: "Plumbing Services",
     description: "Description for Category 1",
     imageUrl: "https://via.placeholder.com/150",
   },
   {
-    title: "Category 2",
+    title: "Electrical Services",
     description: "Description for Category 2",
     imageUrl: "https://via.placeholder.com/150",
   },
   {
-    title: "Category 3",
+    title: "Gardening Services",
     description: "Description for Category 3",
     imageUrl: "https://via.placeholder.com/150",
   },
   {
-    title: "Category 4",
+    title: "Masonry Services",
     description: "Description for Category 4",
     imageUrl: "https://via.placeholder.com/150",
   },
   {
-    title: "Category 5",
+    title: "Computer Hardware Services",
     description: "Description for Category 5",
     imageUrl: "https://via.placeholder.com/150",
   },
   {
-    title: "Category 6",
+    title: "Tutoring Services",
     description: "Description for Category 6",
     imageUrl: "https://via.placeholder.com/150",
   },
-];
+];*/
 
 function BrowseCategories() {
   const itemsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
   const [viewAll, setViewAll] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8081/api/service");
+        setCategories(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleClickNext = () => {
     const nextPage = currentPage + 1;
@@ -71,9 +87,9 @@ function BrowseCategories() {
         {visibleCategories.map((category, index) => (
           <CategoryCard
             key={index}
-            title={category.title}
-            description={category.description}
-            imageUrl={category.imageUrl}
+            title={category.service_name}
+            description={category.service_description}
+            imageUrl={category.service_image}
           />
         ))}
       </div>

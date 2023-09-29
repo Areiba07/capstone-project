@@ -2,31 +2,32 @@ import express from "express";
 import { z } from "zod";
 import { sql } from "../db.js";
 
-const todosRouter = express.Router();
+const serviceRouter = express.Router();
 
-const TodoSchema = z.object({
-  user_id: z.number(),
-  user_email: z.string(),
-  user_password: z.string(),
+const ServiceSchema = z.object({
+  service_id: z.number(),
+  service_name: z.string(),
+  service_description: z.string(),
+  service_image: z.string(),
 });
 
-todosRouter.get("/", async (req, res) => { //get all users
-  const todos = await sql`SELECT * FROM "User"`;
+serviceRouter.get("/", async (req, res) => { //get all service
+  const todos = await sql`SELECT * FROM "Service"`;
   res.status(200).send(todos);
 });
 
-todosRouter.get("/:id", async (req, res) => {//get user specific id
+serviceRouter.get("/:id", async (req, res) => {//get service specific id
   const { id } = req.params;
-  const [foundTodo] = await sql`SELECT * FROM "User" WHERE user_id = ${Number(id)};`;
+  const [foundService] = await sql`SELECT * FROM "Service" WHERE user_id = ${Number(id)};`;
 
-  if (foundTodo) {
-    res.status(200).send(foundTodo);
+  if (foundService) {
+    res.status(200).send(foundService);
   } else {
     res.status(404).send("todo not found");
   }
 });
 
-todosRouter.post("/", async (req, res) => {
+/*todosRouter.post("/", async (req, res) => {
   const newTodo = {
     ...req.body,   
   };
@@ -74,6 +75,6 @@ todosRouter.delete("/:id", (req, res) => {
   } else {
     res.status(404).send("todo not found");
   }
-});
+});*/
 
-export default todosRouter;
+export default serviceRouter;

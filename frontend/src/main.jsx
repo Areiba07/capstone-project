@@ -40,6 +40,8 @@ import AdminUsers from './pages/admin-manage-users';
 import AdminPendingServices from './pages/admin-review-service-request';
 import AdminReviewFeedback from './pages/admin-review-feedback';
 import AccountService from "./pages/account-services";
+import { Todos } from "./pages/Todos";
+import {Todos2, loader as todos2Loader, action as todos2Action} from "./pages/Todos2";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,16 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/todos",
+        element: <Todos/>,
+      },
+      {
+        path: "/todos2",
+        loader: todos2Loader,
+        action: todos2Action,
+        element: <Todos2/>,
       },
       {
         path: "/home",
@@ -88,26 +100,12 @@ const router = createBrowserRouter([
         element: <ServiceCards />,
       },
       {
-        path: "/service",
-        element: <Services />,
-        children: [
-          {
-            index: true,
-            element: <GeneralServices />,
-          },
-          {
-            path: "/service/serviceDirectory",
-            element: <ServiceDirectory />,
-          },
-          {
-            path: "/service/serviceCards",
-            element: <ServiceCards />,
-          },
-        ],
-      },
-      {
         path: "/serviceBoard",
         element: <ServiceBoard />,
+      },
+      {
+        path: "/provider-view",
+        element: <ProviderView/>,
       },
     ],
   },
