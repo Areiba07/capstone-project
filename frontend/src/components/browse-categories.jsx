@@ -95,7 +95,7 @@ function BrowseCategories() {
       </div>
       {viewAll ? (
         <button
-          className="bg-red-500 text-white px-4 py-2 mt-2 rounded-lg"
+          className="bg-violet-500 text-white px-4 py-2 mt-2 rounded-lg"
           onClick={handleClickPagination}
         >
           Return
@@ -103,13 +103,13 @@ function BrowseCategories() {
       ) : (
         <>
           <button
-            className="bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg"
+            className="bg-violet-500 text-white px-4 py-2 mt-2 rounded-lg"
             onClick={handleClickNext}
           >
             Next Categories
           </button>
           <button
-            className="bg-green-500 text-white px-4 py-2 mt-2 rounded-lg"
+            className="bg-violet-500 text-white px-4 py-2 mt-2 rounded-lg"
             onClick={handleClickViewAll}
           >
             View All Categories

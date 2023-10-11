@@ -28,9 +28,9 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 
 app.use("/api/auth", authRouter);
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
   res.send("Hello world 2 sfdsf");
-});
+});*/
 app.use("/api/service", serviceRouter);
 app.use(authenticated); //login req
 app.use("/api/todos", todosRouter);

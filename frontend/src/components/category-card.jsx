@@ -13,7 +13,7 @@ const CategoryCard = ({ title, description, imageUrl }) => {
         {description}
       </p>
 
-      <Button href="/seeker-home/servicesCards" gradientDuoTone="pinkToOrange">
+      <Button href="/seeker-home/servicesCards" gradientDuoTone="purpleToPink">
         <Link to={"/serviceCards"}>
           <p>Explore</p>
         </Link>

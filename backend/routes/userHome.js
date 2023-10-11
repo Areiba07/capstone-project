@@ -23,7 +23,7 @@ userRouter.get("/", async (req, res) => {
 });
 
 userRouter.get("/:id", async (req, res) => {
-  //get service specific id
+  //get user specific id
   const { id } = req.params;
   const [foundUser] =
     await sql`SELECT * FROM "User" WHERE user_id = ${Number(id)};`;

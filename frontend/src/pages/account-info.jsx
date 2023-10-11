@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import 'tailwindcss/tailwind.css';
 
 export default function AccountInfo() {
   const initialFormData = {
@@ -12,144 +14,44 @@ export default function AccountInfo() {
     barangay: "",
   };
 
-  const [formData, setFormData] = useState({ ...initialFormData });
-  const [savedData, setSavedData] = useState([]);
-  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const handleInputChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  const handleSave = () => {
-    setShowConfirmation(true);
+  const handleEditClick = () => {
+    setModalIsOpen(true);
   };
 
-  const confirmSave = () => {
-    setSavedData([formData, ...savedData]);
-    setFormData({ ...initialFormData });
-    setShowConfirmation(false);
-  };
-
-  const cancelSave = () => {
-    setShowConfirmation(false);
+  const handleSaveClick = () => {
+    // Save your data here
+    setModalIsOpen(false);
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-8">
-      <h1 className="text-2xl font-bold mb-4">Account Information</h1>
-      <div className="flex flex-col">
-        <label className="mb-2">Email</label>
-        <input
-          type="email"
-          className="border p-2 rounded-md mb-4"
-          placeholder="thisaccemail@gmail.com"
-          disabled
-        />
-        <label className="mb-2">First Name</label>
-        <input
-          type="text"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleInputChange}
-          className="border p-2 rounded-md mb-4"
-          placeholder="First name"
-        />
-        <label className="mb-2">Last Name</label>
-        <input
-          type="text"
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleInputChange}
-          className="border p-2 rounded-md mb-4"
-          placeholder="Last name"
-        />
-        <label className="mb-2">Contact Number</label>
-        <input
-          type="text"
-          name="contactNumber"
-          value={formData.contactNumber}
-          onChange={handleInputChange}
-          className="border p-2 rounded-md mb-4"
-          placeholder="Contact number"
-        />
-        <label className="mb-2">Home Address</label>
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleInputChange}
-          className="border p-2 rounded-md mb-4"
-          placeholder="Home Address"
-        />
-        <label className="mb-2">Region</label>
-        <input
-          type="text"
-          name="region"
-          value={formData.region}
-          onChange={handleInputChange}
-          className="border p-2 rounded-md mb-4"
-          placeholder="Region"
-        />
-        <label className="mb-2">City</label>
-        <input
-          type="text"
-          name="city"
-          value={formData.city}
-          onChange={handleInputChange}
-          className="border p-2 rounded-md mb-4"
-          placeholder="City"
-        />
-        <label className="mb-2">Province</label>
-        <input
-          type="text"
-          name="province"
-          value={formData.province}
-          onChange={handleInputChange}
-          className="border p-2 rounded-md mb-4"
-          placeholder="Province"
-        />
-        <label className="mb-2">Barangay</label>
-        <input
-          type="text"
-          name="barangay"
-          value={formData.barangay}
-          onChange={handleInputChange}
-          className="border p-2 rounded-md mb-4"
-          placeholder="Barangay"
-        />
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
-          onClick={handleSave}
-        >
-          Save
-        </button>
-      </div>
-
-      {showConfirmation && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg">
-            <p>Are you sure you want to save the data?</p>
-            <div className="flex justify-end mt-4">
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
-                onClick={confirmSave}
-              >
-                Yes
-              </button>
-              <button
-                className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md"
-                onClick={cancelSave}
-              >
-                No
-              </button>
-            </div>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Account Info</h1>
+      <button onClick={handleEditClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+      <Modal isOpen={modalIsOpen}>
+        <h2 className="text-xl font-bold mb-4">Edit Account Info</h2>
+        {Object.entries(formData).map(([key, value]) => (
+          <div key={key} className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">{key}:</label>
+            <input name={key} value={value} onChange={handleInputChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
           </div>
-        </div>
-      )}
+        ))}
+        <button onClick={handleSaveClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+      </Modal>
+      <div className="mt-8">
+        {Object.entries(formData).map(([key, value]) => (
+          <p key={key} className="mb-2">{`${key}: ${value}`}</p>
+        ))}
+      </div>
     </div>
   );
 }

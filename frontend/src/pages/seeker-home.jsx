@@ -6,7 +6,7 @@ import { Outlet, useNavigate } from "react-router";
 import FooterWithLogo from "../components/footer";
 import axios from "axios";
 import useIsAuthenticated from "../hooks/useIsAuthenticated";
-let username = "John Doe";
+//let username = "John Doe";
 
 export const loader = async () => {
   const response = await fetch("/api/userHome", {
@@ -20,11 +20,14 @@ export default function UserPage() {
   useIsAuthenticated();
   const navigate = useNavigate();
   const [home, setHome] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     async function init() {
       const data = await loader();
       setHome(data.home);
+      const authenticatedUser = JSON.parse(localStorage.getItem('authenticatedUser'));
+      setUser(authenticatedUser);
     }
     init();
   }, []);
@@ -51,7 +54,7 @@ export default function UserPage() {
           alt="User"
           className="user-image w-24 h-24 mt-10 rounded-full mb-4"
         />
-        <h3 className="text-xl font-semibold">{username}</h3>
+        <h3 className="text-xl font-semibold">{user ? user.email : 'Loading...'}</h3>
         <ul className="mt-6 space-y-2">
           <li className="cursor-pointer">
             <a>
