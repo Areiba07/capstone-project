@@ -1,8 +1,41 @@
 import logo from "../assets/images/logo.png";
-import { Link } from "react-router-dom";
-import 'tailwindcss/tailwind.css';
+import { Link, useNavigate } from "react-router-dom";
+import "tailwindcss/tailwind.css";
+import axios from "axios";
+import { useRef, useState } from "react";
 
 export default function SeekerSignup() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
+  console.log(JSON.parse(localStorage.getItem("authenticatedUser")));
+  async function onCreateClick(event) {
+    event.preventDefault();
+
+    try {
+      const response = await axios({
+        method: "post",
+        url: "/api/auth/sign-up",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: {
+          user_email: emailRef.current.value,
+          user_password: passwordRef.current.value,
+        },
+      });
+      localStorage.setItem("authenticatedUser", JSON.stringify(response.data));
+      navigate("/seeker-home");
+      console.log(response);
+    } catch (e) {
+      const { data } = e.response;
+      if (Array.isArray(data)) {
+        return setErrors(data.map((e) => `${e.field} - ${e.message}`));
+      }
+    }
+  }
+
   return (
     <>
       <section class="bg-gray-50 dark:bg-gray-900">
@@ -11,11 +44,7 @@ export default function SeekerSignup() {
             href="#"
             class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
-            <img
-              class="w-12 h-12 mr-2"
-              src={logo}
-              alt="logo"
-            />
+            <img class="w-12 h-12 mr-2" src={logo} alt="logo" />
             BE A SEEKER!
           </a>
           <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -38,6 +67,7 @@ export default function SeekerSignup() {
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@email.com"
                     required=""
+                    ref={emailRef}
                   />
                 </div>
                 <div>
@@ -54,9 +84,10 @@ export default function SeekerSignup() {
                     placeholder="••••••••"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
+                    ref={passwordRef}
                   />
                 </div>
-            {/**  <div>
+                {/**  <div>
                   <label
                     for="confirm-password"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -71,7 +102,7 @@ export default function SeekerSignup() {
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                   />
-                </div>*/} 
+                </div>*/}
                 <div class="flex items-start">
                   <div class="flex items-center h-5">
                     <input
@@ -100,8 +131,10 @@ export default function SeekerSignup() {
                 <button
                   type="submit"
                   class="w-full text-black bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  onClick={onCreateClick}
                 >
-                  <Link to={"/seeker-home"}>Create Account</Link>
+                  {/*<Link to={"/seeker-home"}>Create Account</Link>*/}
+                  Create Account
                 </button>
                 <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                   Already have an account?{" "}
@@ -112,6 +145,13 @@ export default function SeekerSignup() {
                     <Link to={"/login"}>Login here</Link>
                   </a>
                 </p>
+                <ul>
+                  {errors.map((e) => (
+                    <li key={e} style={{ color: "red" }}>
+                      {e}
+                    </li>
+                  ))}
+                </ul>
               </form>
             </div>
           </div>

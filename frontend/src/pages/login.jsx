@@ -25,7 +25,7 @@ export default function Login() {
                 Service Providers
               </h2>
 
-              <Link to={"/providerLogin"}>              
+              <Link to={"/seekerLogin"}>              
               <img
                   alt="providerLogo"
                   className=" hover:bg-indigo-200 rounded-full mx-auto justify-normal w-100 h-100"

@@ -9,7 +9,7 @@ import { Outlet } from "react-router";
 import FooterWithLogo from "../components/footer";
 import "../assets/styles/index.css";
 
-const UserPage = () => {
+export default function UserPage() {
   const [showAddScheduleModal, setShowAddScheduleModal] = useState(false);
   const [showRatingModal, setShowRatingModal] = useState(false);
   const [rating, setRating] = useState(0);
@@ -169,6 +169,7 @@ const UserPage = () => {
       <FooterWithLogo />
     </>
   );
-};
+}
 
-export default UserPage;
+
+

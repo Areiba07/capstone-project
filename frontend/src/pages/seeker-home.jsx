@@ -1,15 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/header-seeker";
 import SearchComponent from "../components/search";
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import FooterWithLogo from "../components/footer";
+import axios from "axios";
+import useIsAuthenticated from "../hooks/useIsAuthenticated";
 let username = "John Doe";
-const UserPage = () => {
+
+export const loader = async () => {
+  const response = await fetch("/api/userHome", {
+    //credentials: "include",
+  });
+  const home = await response.json();
+  return { home };
+};
+
+export default function UserPage() {
+  useIsAuthenticated();
+  const navigate = useNavigate();
+  const [home, setHome] = useState([]);
+
+  useEffect(() => {
+    async function init() {
+      const data = await loader();
+      setHome(data.home);
+    }
+    init();
+  }, []);
+
+  async function onSignoutClick(){
+    await axios({
+      method: "POST",
+      url: "/api/auth/sign-out"
+    });
+    navigate("/");
+  }
+
   return (
     <>
-      <div className="pl-32"><Header /></div>
-      <div className="pl-80"><SearchComponent/></div>
+      <div className="pl-32">
+        <Header />
+      </div>
+      <div className="pl-80">
+        <SearchComponent />
+      </div>
       <div className="sidebar w-80 bg-gray-100 p-6 flex flex-col items-center fixed top-0 left-0 h-screen">
         <img
           src="https://picsum.photos/200"
@@ -53,12 +88,15 @@ const UserPage = () => {
               <Link to="/seeker-home/account-feedback">Feedback</Link>
             </a>
           </li>
+          <li className="cursor-pointer">
+            <a>
+              <button type="button" onClick={onSignoutClick}>Logout</button>
+            </a>
+          </li>
         </ul>
       </div>
       <div className="-z-10 ml-80">{<Outlet />}</div>
       <FooterWithLogo />
     </>
   );
-};
-
-export default UserPage;
+}

@@ -1,9 +1,10 @@
 import postgres from "postgres";
-import dotenv from "dotenv";
+import { environment } from "./environment.js";
 
-dotenv.config();
 
-export const sql = postgres(process.env.DATABASE_URL);
+const {DATABASE_URL} = environment;
+
+export const sql = postgres(DATABASE_URL);
 
 
 /**const { Pool } = require("pg");

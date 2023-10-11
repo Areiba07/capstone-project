@@ -6,10 +6,12 @@ import { Button } from "flowbite-react";
 import "../assets/styles/serviceRequest.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useIsAuthenticated from "../hooks/useIsAuthenticated";
 
 Modal.setAppElement("#root");
 
 const RequestBoard = () => {
+  useIsAuthenticated();
   const [requests, setRequests] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [requestTitle, setRequestTitle] = useState("");

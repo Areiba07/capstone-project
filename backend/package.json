@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "camelcase-keys": "^9.1.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dbmate": "^2.6.0",
     "dotenv": "^16.3.1",

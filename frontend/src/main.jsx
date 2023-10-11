@@ -88,6 +88,10 @@ const router = createBrowserRouter([
         element: <SeekerSignup />,
       },
       {
+        path: "/seekerLogin",
+        element: <SeekerLogin />,
+      },
+      {
         path: "/searchResult",
         element: <SearchResult />,
       },

@@ -10,10 +10,10 @@ function NavbarItems() {
       nav: "Service Request Board",
       link: "serviceBoard",
     },
-    {
+    {/*
         nav: "Logout",
         link: "/home",
-      },
+  */}
   ];
   const itemList = navItems.map((e, index) => {
     return (
